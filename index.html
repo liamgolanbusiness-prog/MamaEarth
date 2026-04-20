@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="אמא אדמה - בריכה טיפולית בגדרה. הידרותרפיה, וואטסו, שחייה טיפולית, טיפולי מים לכל הגילאים. חוויית ריפוי בלב הטבע.">
+    <meta name="keywords" content="בריכה טיפולית, הידרותרפיה, וואטסו, שחייה טיפולית, גדרה, טיפולי מים, אמא אדמה, watsu, hydrotherapy, therapeutic pool">
+    <meta name="author" content="אמא אדמה בריכה טיפולית">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="אמא אדמה | בריכה טיפולית בגדרה">
+    <meta property="og:description" content="הידרותרפיה, וואטסו וטיפולי מים מקצועיים בסביבה טבעית ומרגיעה. בואו לחוות ריפוי דרך המים.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="he_IL">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>אמא אדמה | בריכה טיפולית בגדרה - הידרותרפיה ווואטסו</title>
+    <link rel="canonical" href="https://mama-adama.co.il">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --water-deep: #0a1628;
+            --water-dark: #0d2137;
+            --water-medium: #1a4a6e;
+            --water-light: #2d8bba;
+            --water-bright: #41b8d5;
+            --water-glow: #6fdfff;
+            --water-foam: #c2f0ff;
+            --sand: #e8d5b7;
+            --sand-light: #f5ece0;
+            --earth-warm: #8b6914;
+            --earth-green: #2d5a27;
+            --heal-gold: #d4a843;
+            --heal-soft: #f0e6d2;
+            --white: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-light: #f0f0f0;
+            --gradient-water: linear-gradient(135deg, var(--water-deep) 0%, var(--water-dark) 30%, var(--water-medium) 70%, var(--water-light) 100%);
+            --gradient-hero: linear-gradient(180deg, rgba(10,22,40,0.3) 0%, rgba(13,33,55,0.6) 50%, rgba(10,22,40,0.9) 100%);
+            --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --shadow-glow: 0 0 40px rgba(65, 184, 213, 0.3);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: var(--water-deep);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            right: 0;
+            background: var(--water-light);
+            color: var(--white);
+            padding: 12px 24px;
+            z-index: 10000;
+            border-radius: 0 0 0 var(--radius-sm);
+            font-weight: 600;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--water-bright);
+            outline-offset: 3px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--water-deep);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .preloader-drop {
+            width: 60px;
+            height: 60px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            background: var(--water-bright);
+            animation: drop-pulse 1.5s ease-in-out infinite;
+        }
+        .preloader-text {
+            color: var(--water-foam);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        @keyframes drop-pulse {
+            0%, 100% { transform: rotate(-45deg) scale(1); opacity: 1; }
+            50% { transform: rotate(-45deg) scale(1.2); opacity: 0.7; }
+        }
+
+        /* ===== WATER CANVAS BACKGROUND ===== */
+        #water-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s ease;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 40px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+        .nav-logo-icon {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+        .nav-logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        .nav-logo-text {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--water-foam), var(--water-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--water-foam);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 4px 0;
+            transition: color var(--transition);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--water-bright);
+            transition: width var(--transition);
+        }
+        .nav-links a:hover, .nav-links a:focus {
+            color: var(--water-bright);
+        }
+        .nav-links a:hover::after, .nav-links a:focus::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            color: var(--white) !important;
+            padding: 10px 28px !important;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            transition: transform var(--transition), box-shadow var(--transition) !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--water-foam);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--water-deep);
+        }
+        .hero-video-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .hero-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-hero);
+            z-index: 2;
+        }
+
+        /* Animated water waves */
+        .hero-waves {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            z-index: 3;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .hero-waves svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+        .hero-waves .wave-1 { animation: wave-move 8s ease-in-out infinite; }
+        .hero-waves .wave-2 { animation: wave-move 10s ease-in-out infinite reverse; }
+        .hero-waves .wave-3 { animation: wave-move 12s ease-in-out infinite; }
+
+        @keyframes wave-move {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-25px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(65, 184, 213, 0.15);
+            border: 1px solid rgba(65, 184, 213, 0.3);
+            padding: 8px 24px;
+            border-radius: 50px;
+            color: var(--water-glow);
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--water-bright);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero-title {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 8px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+        .hero-title span {
+            display: block;
+            background: linear-gradient(135deg, var(--water-foam) 0%, var(--water-bright) 50%, var(--water-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(3.2rem, 8vw, 6.5rem);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: rgba(194, 240, 255, 0.8);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 16px auto 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            color: var(--white);
+            box-shadow: 0 8px 30px rgba(45, 139, 186, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(45, 139, 186, 0.6);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(194, 240, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Floating particles */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(111, 223, 255, 0.6), transparent);
+            animation: float-particle linear infinite;
+        }
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: fadeInUp 1s ease 1.2s both;
+        }
+        .scroll-indicator span {
+            color: rgba(194, 240, 255, 0.6);
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+        .scroll-mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(194, 240, 255, 0.4);
+            border-radius: 13px;
+            position: relative;
+        }
+        .scroll-mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--water-bright);
+            border-radius: 2px;
+            animation: scroll-wheel 2s ease infinite;
+        }
+        @keyframes scroll-wheel {
+            0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            100% { transform: translateX(-50%) translateY(16px); opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SECTION SHARED STYLES ===== */
+        section {
+            position: relative;
+            z-index: 5;
+        }
+        .section-padding {
+            padding: 100px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-tag {
+            display: inline-block;
+            color: var(--water-bright);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .section-desc {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Light section */
+        .section-light {
+            background: var(--white);
+            color: var(--text-dark);
+        }
+        .section-light .section-title {
+            color: var(--water-dark);
+        }
+
+        /* Sand section */
+        .section-sand {
+            background: linear-gradient(180deg, var(--sand-light) 0%, var(--white) 100%);
+        }
+        .section-sand .section-title {
+            color: var(--water-dark);
+        }
+
+        /* Dark section */
+        .section-dark {
+            background: var(--gradient-water);
+            color: var(--text-light);
+        }
+        .section-dark .section-title {
+            color: var(--white);
+        }
+        .section-dark .section-desc {
+            color: rgba(194, 240, 255, 0.7);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image-wrapper {
+            position: relative;
+        }
+        .about-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, var(--water-medium), var(--water-light));
+            box-shadow: var(--shadow-medium);
+        }
+        .about-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            opacity: 0.3;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            border: 1px solid rgba(65, 184, 213, 0.2);
+        }
+        .about-float-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--white);
+            padding: 20px 28px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 2;
+        }
+        .about-float-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .about-float-text {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--water-dark);
+        }
+        .about-float-label {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .about-text h3 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 2rem;
+            color: var(--water-dark);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .about-text p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(45, 139, 186, 0.06);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition);
+        }
+        .about-feature:hover {
+            background: rgba(45, 139, 186, 0.12);
+            transform: translateX(-4px);
+        }
+        .about-feature-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1rem;
+        }
+        .about-feature span {
+            font-weight: 500;
+            color: var(--water-dark);
+            font-size: 0.95rem;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .service-card {
+            background: rgba(255,255,255, 0.05);
+            border: 1px solid rgba(65, 184, 213, 0.15);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--water-bright), transparent);
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255, 0.1);
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(65, 184, 213, 0.4);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, rgba(45, 139, 186, 0.2), rgba(65, 184, 213, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            position: relative;
+            transition: all var(--transition);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, rgba(45, 139, 186, 0.3), rgba(65, 184, 213, 0.2));
+            box-shadow: 0 0 30px rgba(65, 184, 213, 0.3);
+        }
+        .service-card h3 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: rgba(194, 240, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ===== BENEFITS / WHY US SECTION ===== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .benefit-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .benefit-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--water-light), var(--water-bright));
+            transform: scaleX(0);
+            transition: transform var(--transition);
+        }
+        .benefit-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-medium);
+        }
+        .benefit-card:hover::after {
+            transform: scaleX(1);
+        }
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .benefit-card h4 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.2rem;
+            color: var(--water-dark);
+            margin-bottom: 10px;
+        }
+        .benefit-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .testimonials-track {
+            display: flex;
+            gap: 28px;
+            animation: scroll-testimonials 30s linear infinite;
+        }
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-testimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .testimonial-card {
+            min-width: 380px;
+            background: rgba(255,255,255, 0.07);
+            border: 1px solid rgba(65, 184, 213, 0.15);
+            border-radius: var(--radius);
+            padding: 36px;
+            backdrop-filter: blur(10px);
+            flex-shrink: 0;
+        }
+        .testimonial-stars {
+            color: var(--heal-gold);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        .testimonial-text {
+            color: rgba(194, 240, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .testimonial-name {
+            color: var(--white);
+            font-weight: 600;
+        }
+        .testimonial-role {
+            color: rgba(194, 240, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 280px;
+            gap: 16px;
+        }
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--water-medium), var(--water-dark));
+            transition: transform var(--transition);
+        }
+        .gallery-item:nth-child(1) {
+            grid-row: span 2;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            opacity: 0.2;
+            color: var(--water-foam);
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(10,22,40,0.8) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay span {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* ===== STATS COUNTER ===== */
+        .stats {
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        .stat-item {
+            position: relative;
+        }
+        .stat-number {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--water-bright);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            color: rgba(194, 240, 255, 0.7);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40px;
+            background: rgba(65, 184, 213, 0.3);
+        }
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding: 0;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--water-dark);
+            text-align: right;
+            transition: color var(--transition);
+        }
+        .faq-question:hover {
+            color: var(--water-light);
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--water-light);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-right: 16px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+        .faq-answer p {
+            color: #666;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .contact-info h3 {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .contact-info > p {
+            color: rgba(194, 240, 255, 0.7);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255, 0.05);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(65, 184, 213, 0.1);
+            transition: all var(--transition);
+        }
+        .contact-detail:hover {
+            background: rgba(255,255,255, 0.1);
+            border-color: rgba(65, 184, 213, 0.3);
+        }
+        .contact-detail-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contact-detail-text h4 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .contact-detail-text p, .contact-detail-text a {
+            color: rgba(194, 240, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color var(--transition);
+        }
+        .contact-detail-text a:hover {
+            color: var(--water-bright);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255,255,255, 0.05);
+            border: 1px solid rgba(65, 184, 213, 0.15);
+            border-radius: var(--radius);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            color: rgba(194, 240, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255,255,255, 0.07);
+            border: 1px solid rgba(65, 184, 213, 0.2);
+            border-radius: var(--radius-sm);
+            color: var(--white);
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            transition: all var(--transition);
+            direction: rtl;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(194, 240, 255, 0.4);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--water-bright);
+            background: rgba(255,255,255, 0.1);
+            box-shadow: 0 0 20px rgba(65, 184, 213, 0.15);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group select option {
+            background: var(--water-dark);
+            color: var(--white);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--water-light), var(--water-bright));
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(45, 139, 186, 0.4);
+        }
+
+        /* ===== MAP ===== */
+        .map-wrapper {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 350px;
+            margin-top: 60px;
+            border: 1px solid rgba(65, 184, 213, 0.2);
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(5, 12, 25, 0.95);
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid rgba(65, 184, 213, 0.1);
+        }
+        .footer-main {
+            padding: 60px 20px 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-brand p {
+            color: rgba(194, 240, 255, 0.6);
+            margin-top: 16px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(65, 184, 213, 0.1);
+            border: 1px solid rgba(65, 184, 213, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--water-bright);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all var(--transition);
+        }
+        .footer-social a:hover {
+            background: var(--water-bright);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        .footer-col h4 {
+            color: var(--white);
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--water-bright);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: rgba(194, 240, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .footer-col a:hover {
+            color: var(--water-bright);
+            transform: translateX(-4px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(65, 184, 213, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .footer-bottom p {
+            color: rgba(194, 240, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 9999;
+        }
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            color: var(--white);
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all var(--transition);
+            position: relative;
+        }
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-float .pulse-ring {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #25D366;
+            animation: wa-pulse 2s ease infinite;
+        }
+        @keyframes wa-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: var(--shadow-medium);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--white);
+        }
+        .whatsapp-float a:hover + .whatsapp-tooltip,
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9998;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(45, 139, 186, 0.9);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition);
+            box-shadow: var(--shadow-soft);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--water-bright);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SCROLL REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* 3D tilt on cards */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* ===== SECTION WAVE DIVIDERS ===== */
+        .wave-divider {
+            position: relative;
+            margin-top: -1px;
+        }
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: 80px;
+        }
+        .wave-divider-flip {
+            transform: rotate(180deg);
+            margin-bottom: -1px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .stat-item::after {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-auto-rows: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background: rgba(10, 22, 40, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 24px;
+                padding: 40px;
+                transition: right 0.4s ease;
+                z-index: 1000;
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 180px;
+            }
+            .gallery-item:nth-child(1) {
+                grid-row: span 1;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .testimonial-card {
+                min-width: 300px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: clamp(2.2rem, 8vw, 3.5rem);
+            }
+            .hero-title span {
+                font-size: clamp(2.6rem, 9vw, 4rem);
+            }
+            .section-padding {
+                padding: 70px 16px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-float-card {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: 16px;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                left: 20px;
+            }
+            .whatsapp-float a {
+                width: 52px;
+                height: 52px;
+                font-size: 1.5rem;
+            }
+            .whatsapp-float .pulse-ring {
+                width: 52px;
+                height: 52px;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+            .contact-form {
+                padding: 28px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 200px;
+            }
+        }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal, .reveal-left, .reveal-right {
+                opacity: 1;
+                transform: none;
+            }
+            .testimonials-track {
+                animation: none;
+            }
+        }
+
+        /* ===== PARALLAX WATER RINGS ===== */
+        .water-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(65, 184, 213, 0.1);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-drop"></div>
+        <p class="preloader-text">אמא אדמה</p>
+    </div>
+
+    <!-- Water Canvas Background -->
+    <canvas id="water-canvas" aria-hidden="true"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="תפריט ראשי">
+        <a href="#hero" class="nav-logo" aria-label="אמא אדמה - דף הבית">
+            <div class="nav-logo-icon">
+                <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="25" cy="25" r="23" stroke="url(#logo-grad)" stroke-width="2" fill="none"/>
+                    <path d="M15 30 Q20 20, 25 25 Q30 30, 35 22" stroke="url(#logo-grad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M12 35 Q20 28, 25 32 Q30 36, 38 28" stroke="url(#logo-grad)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+                    <circle cx="25" cy="16" r="3" fill="url(#logo-grad)"/>
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0" y1="0" x2="50" y2="50">
+                            <stop offset="0%" stop-color="#6fdfff"/>
+                            <stop offset="100%" stop-color="#41b8d5"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="nav-logo-text">אמא אדמה</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">אודות</a></li>
+            <li><a href="#services">טיפולים</a></li>
+            <li><a href="#benefits">למה אנחנו</a></li>
+            <li><a href="#testimonials">המלצות</a></li>
+            <li><a href="#faq">שאלות נפוצות</a></li>
+            <li><a href="#contact" class="nav-cta">צרו קשר</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="תפריט" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" aria-label="ברוכים הבאים">
+        <!-- Animated particles -->
+        <div class="hero-particles" aria-hidden="true" id="heroParticles"></div>
+
+        <!-- Video background alternative - gradient animated -->
+        <div class="hero-video-bg" aria-hidden="true">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a1628 0%, #0d2137 25%, #1a4a6e 50%, #0d2137 75%, #0a1628 100%);background-size:400% 400%;animation:gradientShift 15s ease infinite;"></div>
+        </div>
+        <style>
+            @keyframes gradientShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+        </style>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content" id="main-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                בריכה טיפולית בגדרה
+            </div>
+            <h1 class="hero-title">
+                אמא אדמה
+                <span>ריפוי דרך המים</span>
+            </h1>
+            <p class="hero-subtitle">
+                חוויה טיפולית ייחודית המשלבת הידרותרפיה, וואטסו וטיפולי מים מקצועיים בסביבה טבעית ומרגיעה. הגוף צף, הנפש נרגעת, הריפוי מתחיל.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    קבעו תור עכשיו
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    הטיפולים שלנו
+                </a>
+            </div>
+        </div>
+
+        <!-- Waves -->
+        <div class="hero-waves" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path class="wave-1" d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,70 1440,60 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.06)"/>
+                <path class="wave-2" d="M0,80 C240,40 480,100 720,60 C960,20 1200,80 1440,50 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.04)"/>
+                <path class="wave-3" d="M0,90 C180,70 540,110 720,70 C900,30 1260,90 1440,70 L1440,120 L0,120 Z" fill="#ffffff"/>
+            </svg>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-mouse"></div>
+            <span>גללו למטה</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-light section-padding" aria-label="אודות">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper reveal-right">
+                    <div class="about-image">
+                        <div class="about-image-placeholder">🌊</div>
+                    </div>
+                    <div class="about-float-card">
+                        <div class="about-float-icon">💧</div>
+                        <div>
+                            <div class="about-float-text">34°C</div>
+                            <div class="about-float-label">טמפרטורת מים אופטימלית</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text reveal-left">
+                    <div class="section-tag">אודות אמא אדמה</div>
+                    <h3>חוויית ריפוי טבעית בלב גדרה</h3>
+                    <p>
+                        ב"אמא אדמה" אנו מאמינים בכוח הריפוי הטבעי של המים. הבריכה הטיפולית שלנו מציעה מרחב בטוח ומרגיע, שבו הגוף והנפש מוצאים מרגוע ואיזון. המים החמים, בטמפרטורה של 34 מעלות, מאפשרים שחרור שרירים, הפחתת כאבים ושיקום גופני ורגשי.
+                    </p>
+                    <p>
+                        הצוות המקצועי שלנו מורכב ממטפלים מוסמכים בעלי ניסיון רב בהידרותרפיה, וואטסו וטיפולי מים מתקדמים. כל טיפול מותאם אישית לצרכים הייחודיים של כל מטופל.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <span>מטפלים מוסמכים</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <span>בריכה חמה כל השנה</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <span>סביבה טבעית ומרגיעה</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✓</div>
+                            <span>טיפול אישי מותאם</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,0 L1440,0 L1440,40 Q1080,80 720,40 Q360,0 0,40 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section-dark section-padding" aria-label="השירותים שלנו">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">השירותים שלנו</div>
+                <h2 class="section-title">טיפולי מים מקצועיים</h2>
+                <p class="section-desc">מגוון טיפולים מותאמים אישית לכל גיל ומצב, בליווי מטפלים מומחים</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal tilt-card" style="transition-delay: 0.1s">
+                    <div class="service-icon">🌀</div>
+                    <h3>וואטסו (WATSU)</h3>
+                    <p>טיפול ייחודי המשלב תנועות עדינות, מתיחות ולחיצות על נקודות אנרגיה בתוך מים חמים. חוויית ציפה מרגיעה שמשחררת מתחים עמוקים ומחזירה את הגוף לאיזון.</p>
+                </div>
+                <div class="service-card reveal tilt-card" style="transition-delay: 0.2s">
+                    <div class="service-icon">💧</div>
+                    <h3>הידרותרפיה</h3>
+                    <p>שיקום ותרגול במים חמים המאפשרים טווח תנועה רחב יותר, חיזוק שרירים והפחתת עומס על המפרקים. מתאים לשיקום לאחר ניתוחים ופציעות.</p>
+                </div>
+                <div class="service-card reveal tilt-card" style="transition-delay: 0.3s">
+                    <div class="service-icon">🏊</div>
+                    <h3>שחייה טיפולית</h3>
+                    <p>שיעורי שחייה מותאמים אישית בבריכה טיפולית, המשלבים טכניקות שחייה עם תרגילי שיקום. מתאים לכל הגילאים ורמות הכושר.</p>
+                </div>
+                <div class="service-card reveal tilt-card" style="transition-delay: 0.4s">
+                    <div class="service-icon">🤰</div>
+                    <h3>טיפולי מים בהריון</h3>
+                    <p>טיפולי מים ייעודיים לנשים בהריון, המסייעים בהקלה על כאבי גב, נפיחויות ומתחים. חוויה מרגיעה ובטוחה לאם ולתינוק.</p>
+                </div>
+                <div class="service-card reveal tilt-card" style="transition-delay: 0.5s">
+                    <div class="service-icon">👶</div>
+                    <h3>שחיית תינוקות</h3>
+                    <p>שיעורי שחייה לתינוקות ופעוטות בבריכה חמה ומותאמת, לפיתוח מוטורי, חיזוק הביטחון במים ויצירת חוויה משפחתית מהנה.</p>
+                </div>
+                <div class="service-card reveal tilt-card" style="transition-delay: 0.6s">
+                    <div class="service-icon">🧘</div>
+                    <h3>מיינדפולנס במים</h3>
+                    <p>מדיטציה והרפיה עמוקה במים חמים, שילוב ייחודי של תרגילי נשימה ותנועות עדינות במים ליצירת שלווה פנימית ושחרור מתחים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider wave-divider-flip" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 Q360,80 720,40 Q1080,0 1440,40 L1440,80 L0,80 Z" fill="#f5ece0"/>
+        </svg>
+    </div>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section-sand section-padding" aria-label="למה לבחור בנו">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">היתרונות שלנו</div>
+                <h2 class="section-title">למה לבחור באמא אדמה?</h2>
+                <p class="section-desc">אנחנו מחויבים לספק את חוויית הטיפול הטובה ביותר</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal tilt-card" style="transition-delay: 0.1s">
+                    <span class="benefit-icon">🌡️</span>
+                    <h4>מים חמים 34°C</h4>
+                    <p>טמפרטורת מים אופטימלית לריפוי, הרפיה והשגת טווח תנועה מרבי</p>
+                </div>
+                <div class="benefit-card reveal tilt-card" style="transition-delay: 0.2s">
+                    <span class="benefit-icon">👨‍⚕️</span>
+                    <h4>צוות מומחה</h4>
+                    <p>מטפלים מוסמכים עם שנות ניסיון בתחום הידרותרפיה וטיפולי מים</p>
+                </div>
+                <div class="benefit-card reveal tilt-card" style="transition-delay: 0.3s">
+                    <span class="benefit-icon">🌿</span>
+                    <h4>סביבה טבעית</h4>
+                    <p>מרחב ירוק ושלוו, מנותק מהמולת היומיום, לחוויית טיפול מושלמת</p>
+                </div>
+                <div class="benefit-card reveal tilt-card" style="transition-delay: 0.4s">
+                    <span class="benefit-icon">💜</span>
+                    <h4>טיפול אישי</h4>
+                    <p>כל טיפול מותאם באופן אישי לצרכים, ליכולות ולמטרות של המטופל</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,0 L1440,0 L1440,40 Q1080,80 720,40 Q360,0 0,40 Z" fill="#f5ece0"/>
+        </svg>
+    </div>
+    <section class="stats section-dark section-padding" aria-label="המספרים שלנו">
+        <div class="container">
+            <div class="stats-grid reveal">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1500">0</div>
+                    <div class="stat-label">מטופלים מרוצים</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="6">0</div>
+                    <div class="stat-label">סוגי טיפולים</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="34">0</div>
+                    <div class="stat-label">מעלות חום מים</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-dark section-padding" style="padding-top:40px;" aria-label="מה אומרים עלינו">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">המלצות</div>
+                <h2 class="section-title">מה אומרים עלינו</h2>
+                <p class="section-desc">חוויות של מטופלים שכבר חוו את הקסם של טיפולי המים שלנו</p>
+            </div>
+            <div class="testimonials-wrapper">
+                <div class="testimonials-track" id="testimonialTrack">
+                    <!-- First set -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"אחרי שנים של כאבי גב כרוניים, טיפולי הוואטסו באמא אדמה שינו לי את החיים. ההרגשה של ציפה במים החמים עם הטיפול המקצועי - אין כמו זה."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ר</div>
+                            <div>
+                                <div class="testimonial-name">רחל כ.</div>
+                                <div class="testimonial-role">מטופלת וואטסו</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"הבן שלי עם צרכים מיוחדים מגיע לבריכה הטיפולית כבר חצי שנה. ההתקדמות שלו מדהימה - גם מבחינה מוטורית וגם מבחינה רגשית. המטפלים פשוט מדהימים."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">מ</div>
+                            <div>
+                                <div class="testimonial-name">מיכל א.</div>
+                                <div class="testimonial-role">אמא למטופל</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"אחרי ניתוח ברך, הגעתי לשיקום בהידרותרפיה ותוך חודשיים חזרתי לתפקוד מלא. המים החמים והטיפול המקצועי האיצו את תהליך ההחלמה באופן משמעותי."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ד</div>
+                            <div>
+                                <div class="testimonial-name">דוד ש.</div>
+                                <div class="testimonial-role">שיקום אורתופדי</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"הטיפולים במים בזמן ההריון היו הדבר הכי טוב שעשיתי לעצמי. הקלה מהכאבים, רגיעה ותחושה של חיבור לגוף. ממליצה בחום לכל אישה בהריון!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">נ</div>
+                            <div>
+                                <div class="testimonial-name">נועה ל.</div>
+                                <div class="testimonial-role">טיפולי הריון</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"אחרי שנים של כאבי גב כרוניים, טיפולי הוואטסו באמא אדמה שינו לי את החיים. ההרגשה של ציפה במים החמים עם הטיפול המקצועי - אין כמו זה."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ר</div>
+                            <div>
+                                <div class="testimonial-name">רחל כ.</div>
+                                <div class="testimonial-role">מטופלת וואטסו</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"הבן שלי עם צרכים מיוחדים מגיע לבריכה הטיפולית כבר חצי שנה. ההתקדמות שלו מדהימה - גם מבחינה מוטורית וגם מבחינה רגשית. המטפלים פשוט מדהימים."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">מ</div>
+                            <div>
+                                <div class="testimonial-name">מיכל א.</div>
+                                <div class="testimonial-role">אמא למטופל</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"אחרי ניתוח ברך, הגעתי לשיקום בהידרותרפיה ותוך חודשיים חזרתי לתפקוד מלא. המים החמים והטיפול המקצועי האיצו את תהליך ההחלמה באופן משמעותי."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ד</div>
+                            <div>
+                                <div class="testimonial-name">דוד ש.</div>
+                                <div class="testimonial-role">שיקום אורתופדי</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"הטיפולים במים בזמן ההריון היו הדבר הכי טוב שעשיתי לעצמי. הקלה מהכאבים, רגיעה ותחושה של חיבור לגוף. ממליצה בחום לכל אישה בהריון!"</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">נ</div>
+                            <div>
+                                <div class="testimonial-name">נועה ל.</div>
+                                <div class="testimonial-role">טיפולי הריון</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div class="wave-divider wave-divider-flip" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 Q360,80 720,40 Q1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+    <section id="gallery" class="section-light section-padding" aria-label="גלריה">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">גלריה</div>
+                <h2 class="section-title">הצצה לבריכה שלנו</h2>
+                <p class="section-desc">תמונות מהמרחב הטיפולי שלנו</p>
+            </div>
+            <div class="gallery-grid reveal">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🏊‍♀️</div>
+                    <div class="gallery-overlay"><span>הבריכה הטיפולית</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🌿</div>
+                    <div class="gallery-overlay"><span>הסביבה הטבעית</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">💆</div>
+                    <div class="gallery-overlay"><span>טיפול וואטסו</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🌊</div>
+                    <div class="gallery-overlay"><span>הידרותרפיה</span></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">👶</div>
+                    <div class="gallery-overlay"><span>שחיית תינוקות</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,0 L1440,0 L1440,40 Q1080,80 720,40 Q360,0 0,40 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+    <section id="faq" class="section-sand section-padding" aria-label="שאלות נפוצות">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">שאלות נפוצות</div>
+                <h2 class="section-title">יש לכם שאלות?</h2>
+                <p class="section-desc">ריכזנו עבורכם את התשובות לשאלות הנפוצות ביותר</p>
+            </div>
+            <div class="faq-list reveal">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        מה זה וואטסו ולמי זה מתאים?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>וואטסו (Water Shiatsu) הוא טיפול ייחודי המתבצע במים חמים בטמפרטורה של 34-35 מעלות. המטפל מחזיק את המטופל במים ומבצע תנועות עדינות, מתיחות ולחיצות על נקודות אנרגיה. הטיפול מתאים כמעט לכולם - לסובלים מכאבים כרוניים, סטרס, בעיות שינה, ולכל מי שמחפש הרפיה עמוקה.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        מה צריך להביא לטיפול?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>יש להביא בגד ים, מגבת ונעלי אצבע. אנו מספקים את כל השאר - חלוק, כפכפים חד-פעמיים ואביזרי רחצה. מומלץ להגיע 10 דקות לפני הטיפול כדי להתרענן ולהירגע.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        האם הטיפולים מתאימים לילדים?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>בהחלט! אנו מציעים טיפולי הידרותרפיה ושחייה טיפולית לילדים מגיל תינוקות ועד בגרות. הטיפולים מותאמים לגיל ולצרכים של כל ילד, ומתבצעים על ידי מטפלים המתמחים בטיפול בילדים.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        כמה זמן נמשך טיפול?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>טיפול סטנדרטי נמשך כ-45-50 דקות. ניתן גם להזמין טיפולים ארוכים יותר של 60 או 90 דקות. מומלץ להקדיש זמן נוסף לפני ואחרי הטיפול למנוחה וכניסה למים.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        האם יש כיסוי של קופת חולים?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>חלק מקופות החולים מספקות כיסוי חלקי לטיפולי הידרותרפיה עם הפניה מרופא. מומלץ לבדוק מול קופת החולים שלכם לגבי זכאות והחזרים. נשמח לסייע בהנפקת קבלות מתאימות.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        האם הבריכה מתאימה לנשים בהריון?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>כן! טיפולי מים בהריון הם מהטיפולים הפופולריים שלנו. המים החמים מסייעים בהקלה על כאבי גב, נפיחויות ומתחים. כמובן שיש לקבל אישור מהרופא המטפל לפני תחילת הטיפולים.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,0 L1440,0 L1440,40 Q1080,80 720,40 Q360,0 0,40 Z" fill="#f5ece0"/>
+        </svg>
+    </div>
+    <section id="contact" class="section-dark section-padding" aria-label="צור קשר">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">צרו קשר</div>
+                <h2 class="section-title">נשמח לשמוע מכם</h2>
+                <p class="section-desc">השאירו פרטים ונחזור אליכם בהקדם, או צרו קשר ישירות</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-right">
+                    <h3>בואו נדבר</h3>
+                    <p>מוזמנים ליצור איתנו קשר לשאלות, בירורים או קביעת תור. אנחנו כאן בשבילכם.</p>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📍</div>
+                        <div class="contact-detail-text">
+                            <h4>כתובת</h4>
+                            <p>גדרה, ישראל</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📱</div>
+                        <div class="contact-detail-text">
+                            <h4>טלפון</h4>
+                            <a href="tel:+972500000000" dir="ltr">050-000-0000</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">✉️</div>
+                        <div class="contact-detail-text">
+                            <h4>אימייל</h4>
+                            <a href="mailto:info@mama-adama.co.il">info@mama-adama.co.il</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">🕐</div>
+                        <div class="contact-detail-text">
+                            <h4>שעות פעילות</h4>
+                            <p>ראשון - חמישי: 08:00 - 20:00<br>שישי: 08:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form reveal-left" onsubmit="handleFormSubmit(event)" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">שם מלא *</label>
+                            <input type="text" id="name" name="name" placeholder="הכניסו את שמכם" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">טלפון *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="050-000-0000" required aria-required="true" dir="ltr">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">אימייל</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" dir="ltr">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">סוג טיפול מבוקש</label>
+                        <select id="service" name="service">
+                            <option value="">בחרו טיפול</option>
+                            <option value="watsu">וואטסו (WATSU)</option>
+                            <option value="hydro">הידרותרפיה</option>
+                            <option value="swim">שחייה טיפולית</option>
+                            <option value="pregnancy">טיפולי מים בהריון</option>
+                            <option value="baby">שחיית תינוקות</option>
+                            <option value="mindfulness">מיינדפולנס במים</option>
+                            <option value="other">אחר</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">הודעה</label>
+                        <textarea id="message" name="message" placeholder="ספרו לנו במה נוכל לעזור..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">שליחת הודעה</button>
+                </form>
+            </div>
+
+            <!-- Map -->
+            <div class="map-wrapper reveal">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27086.46!2d34.75!3d31.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b0b0a0a0a0a%3A0x0!2z15LXk9eo15Q!5e0!3m2!1she!2sil!4v1"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="מפת אמא אדמה בגדרה"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-main">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo" aria-label="חזרה לדף הבית">
+                        <div class="nav-logo-icon">
+                            <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="25" cy="25" r="23" stroke="url(#logo-grad2)" stroke-width="2" fill="none"/>
+                                <path d="M15 30 Q20 20, 25 25 Q30 30, 35 22" stroke="url(#logo-grad2)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                <path d="M12 35 Q20 28, 25 32 Q30 36, 38 28" stroke="url(#logo-grad2)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+                                <circle cx="25" cy="16" r="3" fill="url(#logo-grad2)"/>
+                                <defs>
+                                    <linearGradient id="logo-grad2" x1="0" y1="0" x2="50" y2="50">
+                                        <stop offset="0%" stop-color="#6fdfff"/>
+                                        <stop offset="100%" stop-color="#41b8d5"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="nav-logo-text">אמא אדמה</span>
+                    </a>
+                    <p>בריכה טיפולית בגדרה. הידרותרפיה, וואטסו וטיפולי מים מקצועיים בסביבה טבעית ומרגיעה.</p>
+                    <div class="footer-social" aria-label="רשתות חברתיות">
+                        <a href="https://www.facebook.com/profile.php?id=61573336648612" target="_blank" rel="noopener noreferrer" aria-label="פייסבוק">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="אינסטגרם">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.503 3.935 1.386 5.611L0 24l6.581-1.345A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.656-.497-5.213-1.44l-.375-.222-3.881.793.825-3.727-.247-.39A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75S21.75 6.615 21.75 12s-4.365 9.75-9.75 9.75z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>ניווט מהיר</h4>
+                    <ul>
+                        <li><a href="#about">אודות</a></li>
+                        <li><a href="#services">טיפולים</a></li>
+                        <li><a href="#benefits">למה אנחנו</a></li>
+                        <li><a href="#testimonials">המלצות</a></li>
+                        <li><a href="#faq">שאלות נפוצות</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>טיפולים</h4>
+                    <ul>
+                        <li><a href="#services">וואטסו</a></li>
+                        <li><a href="#services">הידרותרפיה</a></li>
+                        <li><a href="#services">שחייה טיפולית</a></li>
+                        <li><a href="#services">טיפולי הריון</a></li>
+                        <li><a href="#services">שחיית תינוקות</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>צרו קשר</h4>
+                    <ul>
+                        <li><a href="#contact">📍 גדרה, ישראל</a></li>
+                        <li><a href="tel:+972500000000" dir="ltr">📱 050-000-0000</a></li>
+                        <li><a href="mailto:info@mama-adama.co.il">✉️ info@mama-adama.co.il</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 אמא אדמה - בריכה טיפולית. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" aria-label="שלחו לנו הודעה בוואטסאפ">
+        <a href="https://wa.me/?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="צרו קשר בוואטסאפ">
+            <div class="pulse-ring"></div>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.503 3.935 1.386 5.611L0 24l6.581-1.345A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.656-.497-5.213-1.44l-.375-.222-3.881.793.825-3.727-.247-.39A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75S21.75 6.615 21.75 12s-4.365 9.75-9.75 9.75z"/></svg>
+        </a>
+        <div class="whatsapp-tooltip">דברו איתנו בוואטסאפ!</div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="חזרה למעלה">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "אמא אדמה - בריכה טיפולית",
+        "alternateName": "Mama Adama Therapeutic Pool",
+        "description": "בריכה טיפולית בגדרה המציעה הידרותרפיה, וואטסו, שחייה טיפולית וטיפולי מים מקצועיים",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "גדרה",
+            "addressCountry": "IL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "31.81",
+            "longitude": "34.75"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+                "opens": "08:00",
+                "closes": "20:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Friday",
+                "opens": "08:00",
+                "closes": "14:00"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "טיפולי מים",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "וואטסו (WATSU)"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "הידרותרפיה"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "שחייה טיפולית"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "טיפולי מים בהריון"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "שחיית תינוקות"}}
+            ]
+        },
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61573336648612"
+        ]
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script>
+        // ===== PRELOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1200);
+        });
+
+        // ===== WATER CANVAS BACKGROUND =====
+        (function() {
+            const canvas = document.getElementById('water-canvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+            let particles = [];
+            const PARTICLE_COUNT = 50;
+
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            class WaterParticle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.speedY = (Math.random() - 0.5) * 0.3 - 0.2;
+                    this.opacity = Math.random() * 0.3 + 0.1;
+                    this.life = Math.random() * 200 + 100;
+                    this.maxLife = this.life;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.life--;
+                    if (this.life <= 0 || this.y < -10 || this.x < -10 || this.x > w + 10) {
+                        this.reset();
+                        this.y = h + 10;
+                    }
+                }
+                draw() {
+                    const alpha = this.opacity * (this.life / this.maxLife);
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(65, 184, 213, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push(new WaterParticle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, w, h);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // ===== HERO PARTICLES =====
+        (function() {
+            const container = document.getElementById('heroParticles');
+            const count = 20;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                const size = Math.random() * 6 + 3;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                p.style.animationDelay = (Math.random() * 8) + 's';
+                container.appendChild(p);
+            }
+        })();
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.querySelector('.navbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            if (window.scrollY > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== MOBILE MENU =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ===== SCROLL REVEAL =====
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // ===== FAQ ACCORDION =====
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ===== STATS COUNTER =====
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsCounted = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsCounted) {
+                    statsCounted = true;
+                    statNumbers.forEach(num => {
+                        const target = parseInt(num.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        const counter = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(counter);
+                            }
+                            num.textContent = Math.floor(current).toLocaleString('he-IL');
+                            if (num.getAttribute('data-target') === '34') {
+                                num.textContent = Math.floor(current) + '°';
+                            }
+                        }, 16);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(n => statsObserver.observe(n));
+
+        // ===== 3D TILT EFFECT =====
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / centerY * -5;
+                const rotateY = (x - centerX) / centerX * 5;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== PARALLAX ON SCROLL =====
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrollY < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
+                heroContent.style.opacity = 1 - (scrollY / (window.innerHeight * 0.8));
+            }
+        });
+
+        // ===== FORM SUBMIT HANDLER =====
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.querySelector('#name').value;
+            const phone = form.querySelector('#phone').value;
+
+            if (!name || !phone) {
+                alert('אנא מלאו את שדות החובה');
+                return;
+            }
+
+            // Build WhatsApp message
+            const service = form.querySelector('#service').value;
+            const message = form.querySelector('#message').value;
+            let waMsg = `שלום, שמי ${name}.\n`;
+            if (service) waMsg += `אשמח לקבל פרטים על: ${form.querySelector('#service option:checked').textContent}\n`;
+            if (message) waMsg += `${message}\n`;
+            waMsg += `טלפון: ${phone}`;
+
+            const waUrl = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+            window.open(waUrl, '_blank');
+
+            // Show success feedback
+            const btn = form.querySelector('.btn-submit');
+            btn.textContent = 'ההודעה נשלחה! ✓';
+            btn.style.background = '#25D366';
+            setTimeout(() => {
+                btn.textContent = 'שליחת הודעה';
+                btn.style.background = '';
+                form.reset();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
